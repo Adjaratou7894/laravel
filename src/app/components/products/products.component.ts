@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product';
 import { DataService } from 'src/app/services/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -37,6 +38,7 @@ export class ProductsComponent {
      
       
     }) 
+    Swal.fire('Produit ajoute avec succès', 'success');
   }
   deleteData(id:number){
     // console.log(id);

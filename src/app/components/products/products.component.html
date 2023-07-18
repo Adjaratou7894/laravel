@@ -1,3 +1,5 @@
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css" /> -->
+
 <!-- Partie Ajouter un produits -->
 <form (ngSubmit)="ajoutProduit()">
     <div class="form-group">
@@ -22,8 +24,8 @@
 <br>
 <br>
 <!-- Partie Affichage du tableau -->
-<table class="table">
-    <thead>
+<table class="table-style">
+    <thead >
         <tr>
             <th scope="col">#</th>
             <th scope="col">Référence</th>
@@ -42,8 +44,8 @@
     <td>{{prod.description}}</td>
     <td>{{prod.quantite}}</td>
     <td>{{prod.prix}}</td>
-    <td ><button class="btn btn-danger btn-sm" (click)="deleteData(prod.id)">Supprimer</button></td>
-    <td ><button class="btn btn-danger btn-sm mx-2" routerLink="edit/{(prod.id)}">Modifier</button></td>
+    <td ><button class="btn btn-danger btn-sm" (click)="deleteData(prod.id)">Supprimer</button> <button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{prod.id}}">Modifier</button></td>
+    <!-- <td ><button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{prod.id}}">Modifier</button></td> -->
     
 
    </tr>

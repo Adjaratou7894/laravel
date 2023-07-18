@@ -7,32 +7,32 @@ import { Product } from '../product';
   providedIn: 'root'
 })
 export class DataService {
-  private baseUrl = 'http://127.0.0.1:8000/api/suppproduct/';
+  private baseUrl = 'http://127.0.0.1:8000';
 
   constructor(private httpclient:HttpClient) { }
   getData():Observable<any>{
-  return  this.httpclient.get('127.0.0.1:8000/api/products')
+  return  this.httpclient.get(this.baseUrl +  '/api/products')
   }
 //function qui permet d'inserer des produits
 
   ajouterData(data:Product):Observable<any>{
-    return  this.httpclient.post('127.0.0.1:8000/api/addProduct',data)
+    return  this.httpclient.post(this.baseUrl +`/api/addProduct`,data)
     }
     // supprimerData(id:number):Observable<any>{
     //   const url = `${this.baseUrl}${id}`;
     //   return this.httpclient.delete(url);
     //   }
-    //Une autre de methode pour la fonction supprimer Data
+    // Une autre de methode pour la fonction supprimer Data
 
      supprimerData(id:number):Observable<any>{
-      return this.httpclient.delete(`127.0.0.1:8000/api/suppproduct/${id}`);
+      return this.httpclient.delete( this.baseUrl+`/api/suppproduct/${id}`);
       }
         //Affichage du produit par Id
-    listeparId(id:number):Observable<any>{
-        return this.httpclient.get(`127.0.0.1:8000/api/product/${id}`);
+    listeparId(id:any):Observable<any>{
+        return this.httpclient.get( this.baseUrl + `/api/product/${id}`);
         }
    modifierData(id:number,data:Product):Observable<any>{
-          return this.httpclient.put(`127.0.0.1:8000/api/product/${id}`, data);
+          return this.httpclient.put( this.baseUrl +`/api/modifierproduct/${id}`, data);
           }
 
 }
